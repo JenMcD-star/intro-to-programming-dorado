@@ -65,15 +65,18 @@ a:hover {
     font-size: 18px;
   }
 }
-#message {
-  padding: 10px;
-}
+
 #messages {
   font-size: larger;
   background-color: #e5e7eb;
-  height: 45%;
+  height: 50%;
   color: #000b4f;
-  padding-top: 10%;
+ 
+}
+#messageSelection {
+  list-style-type: none;
+  float: left;
+  margin-top: -50px;
 }
 
 #aboutme {
