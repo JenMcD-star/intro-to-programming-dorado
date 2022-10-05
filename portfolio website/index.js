@@ -3,30 +3,33 @@ window.onload = function () {
   document.getElementById("year").innerHTML = "© Jennifer McDougall " + year;
 };
 
-function test() {
-  alert("test");
+const nametext = document.getElementById("nametext");
+const emailtext = document.getElementById("emailtext");
+const messagetext = document.getElementById("messagetext");
+const form = document.getElementById("form");
+let name1;
+let email;
+let message;
+
+function getUserInfo() {
+  name1 = document.getElementById("name1").value;
+  email = document.getElementById("email").value;
+  message = document.getElementById("message").value;
 }
 
-const publicMessages = document.getElementById("publicMessages");
-const form = document.getElementById("form");
-const name1 = form.elements["name"];
-const email = form.elements["email"];
-const message = form.message["message"];
-
-let pm = {
-  name1: "name",
-  email: "email",
-  message: "message",
-};
-
 function changeText() {
-  publicMessages.innerHTML = pm;
+  nametext.innerHTML = `Name: ${name1}`;
+  emailtext.innerHTML = `Email: ${email}`;
+  messagetext.innerHTML =`Message: ${message}`;
+
+  console.log(nametext, emailtext, messagetext);
 }
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   alert("your message has been submitted");
+  getUserInfo();
   changeText();
 });
 //this is currently adding the new innerhtml but the problem is that the submit button makes the page reload
-//I think I will need to look ahead into AJAX? 
+//I think I will need to look ahead into AJAX?

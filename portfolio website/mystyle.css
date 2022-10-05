@@ -69,10 +69,11 @@ a:hover {
   padding: 10px;
 }
 #publicMessages {
-  border-style: dashed;
-  border-width: 100px;
   font-size: larger;
-  color: aqua;
+  background-color: #e5e7eb;
+  height: 45%;
+  color: #000b4f;
+  padding-top: 10%;
 }
 
 #aboutme {
