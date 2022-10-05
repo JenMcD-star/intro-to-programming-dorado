@@ -81,12 +81,7 @@ a:hover {
 }
 
 #aboutmetext {
-  text-align: center;
-  margin: 20px;
-  padding: 10px;
-}
-#text {
-  text-align: center;
+  text-align: left;
   margin: 20px;
   padding: 10px;
 }
@@ -97,6 +92,22 @@ a:hover {
   padding: 10px;
   margin-bottom: 50px;
 }
+
+#skillsList{
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+
+#skillsList li {
+  display: inline-block;
+  padding: 30px;
+  border-style: solid;
+  border-color: #000b4f;;
+  border-radius: 10%;
+  margin: 10px;
+}
+
 
 .projects {
   display: grid;
