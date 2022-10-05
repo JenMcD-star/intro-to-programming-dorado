@@ -56,6 +56,7 @@ a:hover {
   text-align: center;
 }
 
+
 @media screen and (max-height: 450px) {
   .leftside {
     padding-top: 15px;
@@ -64,36 +65,45 @@ a:hover {
     font-size: 18px;
   }
 }
-
-#aboutme {
-  vertical-align: top;
-}
-
-#aboutmetext {
-    text-align: center;
-    margin: 20px;
-    padding: 10px;
-}
-#text {
-    text-align: center;
-    margin: 20px;
-    padding: 10px;
-}
-
-#experience {
-  text-align: center;
-  margin: auto;
+#message {
   padding: 10px;
-  font-size: large;
 }
-
-
 #publicMessages {
   border-style: dashed;
   border-width: 100px;
   font-size: larger;
   color: aqua;
 }
+
+#aboutme {
+  vertical-align: top;
+}
+
+#aboutmetext {
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+}
+#text {
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+}
+
+#experiencelist {
+  margin: none;
+  list-style: none;
+  padding: 10px;
+  margin-bottom: 50px;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
 
 .rightside {
   width: 80%;
@@ -104,7 +114,6 @@ a:hover {
   height: 100%;
   text-align: center;
 }
-
 
 .footer {
   position: fixed;
@@ -117,22 +126,20 @@ a:hover {
   text-align: center;
 }
 
-.footerleft{
-    float: left;
-    margin-left: 30px;
-
+.footerleft {
+  float: left;
+  margin-left: 30px;
 }
 
-.footerright{
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
+.footerright {
+  float: right;
+  margin-right: 30px;
+  margin-top: 10px;
 }
 #github {
-    max-width: 30px;
-    max-height: 30px;
+  max-width: 30px;
+  max-height: 30px;
 }
-
 
 
 
