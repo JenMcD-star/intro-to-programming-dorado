@@ -26,19 +26,31 @@ function getUserInfo() {
   message = document.getElementById("message").value;
 }
 
-function changeText() {
-  nametext.innerHTML = `Name: ${name1}`;
-  emailtext.innerHTML = `Email: ${email}`;
-  messagetext.innerHTML =`Message: ${message}`;
-
-  console.log(nametext, emailtext, messagetext);
-}
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   alert("your message has been submitted");
   getUserInfo();
-  changeText();
+  console.log(name1, email, message);
+  const messageSelection = document.getElementById("messageSelection")
+
+  const newMessage = document.createElement("li");
+  newMessage.textContent = '<a href="mailto:'+email+'"></a>'
+  document.getElementById("messageSelection").appendChild(newMessage);
+  
   form.reset();
 });
 
+    
+/*Create a new <button> element and store it in a variable named removeButton
+    Set the inner text to "remove"
+    Set the type attribute to "button"
+    Add an event listener to the removeButton element that handles the "click" event
+        Inside the callback function, find the button's parent element using DOM Traversal (hint: parentNode property) and store it in a variable named entry
+        Remove the entry element from the DOM (hint: remove method)
+Append the removeButton to the newMessage element
+    hint: appendChild method
+Append the newMessage to the messageList element
+Save and refresh your browser
+
+*/
