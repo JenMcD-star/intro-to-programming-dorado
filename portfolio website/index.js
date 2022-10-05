@@ -39,6 +39,6 @@ form.addEventListener("submit", (event) => {
   alert("your message has been submitted");
   getUserInfo();
   changeText();
+  form.reset();
 });
-//this is currently adding the new innerhtml but the problem is that the submit button makes the page reload
-//I think I will need to look ahead into AJAX?
+
