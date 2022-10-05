@@ -1,143 +1,32 @@
-body {
-    display: flex;
-    flex-direction: column;
-    background-color: #000b4f;
-  }
-  
-  #header {
-    display: flex;
-    padding: 10px;
-    align-items: center;
-    margin-left: 16px;
-    margin-right: 46px;
-    color: #e5e7eb;
-  }
-  img {
-    border-radius: 50%;
-    max-width: 100px;
-    max-height: 100px;
-    float: left;
-  }
-  #name {
-    margin-top: 10px;
-  }
-  #links {
-    display: flex;
-    margin-top: 40px;
-    margin-left: 950px;
-    list-style-type: none;
-    gap: 16px;
-    float: right;
-  }
-  
-  a {
-    color: inherit;
-    font-size: medium;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  .leftside {
-    color: whitesmoke;
-    position: relative;
-    margin-top: 120px;
-    height: 100%;
-    width: 350px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    left: 0;
-    z-index: -1;
-    background-color: #6d6d6d;
-    overflow-x: hidden; /* Disable horizontal scroll */
-    text-align: center;
-  }
-  
-  
-  @media screen and (max-height: 450px) {
-    .leftside {
-      padding-top: 15px;
-    }
-    .leftside a {
-      font-size: 18px;
-    }
-  }
-  #message {
-    padding: 10px;
-  }
-  #publicMessages {
-    border-style: dashed;
-    border-width: 100px;
-    font-size: larger;
-    color: aqua;
-  }
-  
-  #aboutme {
-    vertical-align: top;
-  }
-  
-  #aboutmetext {
-    text-align: center;
-    margin: 20px;
-    padding: 10px;
-  }
-  #text {
-    text-align: center;
-    margin: 20px;
-    padding: 10px;
-  }
-  
-  #experiencelist {
-    margin: none;
-    list-style: none;
-    padding: 10px;
-    margin-bottom: 50px;
-  }
-  
-  .projects {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    }
-  
-  .rightside {
-    width: 80%;
-    background-color: #ebebeb;
-    margin-left: 350px;
-    margin-top: 120px;
-    position: fixed;
-    height: 100%;
-    text-align: center;
-  }
-  
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #000b4f;
-    color: white;
-    text-align: center;
-  }
-  
-  .footerleft {
-    float: left;
-    margin-left: 30px;
-  }
-  
-  .footerright {
-    float: right;
-    margin-right: 30px;
-    margin-top: 10px;
-  }
-  #github {
-    max-width: 30px;
-    max-height: 30px;
-  }
-  
+window.onload = function () {
+  let year = new Date().getFullYear();
+  document.getElementById("year").innerHTML = "© Jennifer McDougall " + year;
+};
+
+function test() {
+  alert("test");
+}
+
+const publicMessages = document.getElementById("publicMessages");
+const form = document.getElementById("form");
+const name1 = form.elements["name"];
+const email = form.elements["email"];
+const message = form.message["message"];
+
+let pm = {
+  name1: "name",
+  email: "email",
+  message: "message",
+};
+
+function changeText() {
+  publicMessages.innerHTML = pm;
+}
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  alert("your message has been submitted");
+  changeText();
+});
+//this is currently adding the new innerhtml but the problem is that the submit button makes the page reload
+//I think I will need to look ahead into AJAX? 
