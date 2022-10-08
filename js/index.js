@@ -63,7 +63,7 @@ removeButton.addEventListener("click", function () {
   const entry = removeButton.parentNode;
   entry.remove();
 });
-
+//maybe try using replace? let editMessage = userinput and then replace message?
 editButton.addEventListener("click", function () {
   const entry = removeButton.parentNode;
   entry.remove();
