@@ -18,6 +18,8 @@ skills.forEach(function (item) {
   document.getElementById("skillsList").appendChild(li);
 });
 
+const submitButton = document.createElement("button");
+const editButton = document.createElement("button");
 const removeButton = document.createElement("button");
 const nametext = document.getElementById("nametext");
 const emailtext = document.getElementById("emailtext");
@@ -33,33 +35,46 @@ function getUserInfo() {
   message = document.getElementById("message").value;
 }
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  alert("your message has been submitted");
-  getUserInfo();
-  console.log(name1, email, message);
+function getMessage() {
   const newMessage = document.createElement("li");
   newMessage.innerHTML = `<div>
   <a class="link" href="mailto:${email}">
   ${name1}:</a> 
-  <span>${message}</span>
+  <span id= "usermessage">${message}</span>
 </div>`;
   document.getElementById("messageSelection").appendChild(newMessage);
 
-  removeButton.innerHTML = `<type = button>delete</button>`;
-  newMessage.appendChild(removeButton)
-  
+  removeButton.innerHTML = `<type = button id ="delete">delete</button>`;
+  newMessage.appendChild(removeButton);
+
+  editButton.innerHTML = `<type = button id = "edit">edit</button>`;
+  newMessage.appendChild(editButton);
+}
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  getUserInfo();
+  getMessage();
+
   form.reset();
-  
 });
 
-
-removeButton.addEventListener("click", function() {
+removeButton.addEventListener("click", function () {
   const entry = removeButton.parentNode;
   entry.remove();
+});
+//maybe try using replace? let editMessage = userinput and then replace message?
+editButton.addEventListener("click", function () {
+  const entry = removeButton.parentNode;
+  entry.remove();
+  const newMessage = document.createElement("li");
+  newMessage.innerHTML = `<div> <a class="link" href="mailto:${email}">
+  ${name1}:</a>  <div contenteditable = "true" onsubmit >
+<span>${message}</span>
+</div>`;
+  document.getElementById("messageSelection").appendChild(newMessage);
 
-})
-
+});
 
 /*        Inside the callback function, find the button's parent element using DOM Traversal (hint: parentNode property) and store it in a variable named entry
         Remove the entry element from the DOM (hint: remove method)
