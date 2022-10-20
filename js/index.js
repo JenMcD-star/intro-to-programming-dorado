@@ -1,6 +1,9 @@
 window.onload = function () {
   let year = new Date().getFullYear();
-  document.getElementById("year").innerHTML = "© Jennifer McDougall " + year;
+  let footer = document.getElementById("footerleft");
+  let copyright = document.createElement("p");
+  copyright.innerHTML = "© Jennifer McDougall " + year;
+  footer.appendChild(copyright)
 };
 
 const skills = [
