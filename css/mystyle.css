@@ -74,10 +74,16 @@ a:hover {
  
 }
 #messageSelection {
+  margin-top: 5px;
   list-style-type: none;
   float: left;
+  
 }
 
+#usermessage {
+  text-align: left;
+  word-break: break-all;
+}
 
 
 #aboutme {
