@@ -19,10 +19,9 @@ skills.forEach(function (item) {
 });
 
 const submitButton = document.createElement("button");
+const saveButton = document.createElement("button");
 const editButton = document.createElement("button");
 const removeButton = document.createElement("button");
-const nametext = document.getElementById("nametext");
-const emailtext = document.getElementById("emailtext");
 const messagetext = document.getElementById("messagetext");
 const form = document.getElementById("form");
 let name1;
@@ -49,6 +48,10 @@ function getMessage() {
 
   editButton.innerHTML = `<type = button id = "edit">edit</button>`;
   newMessage.appendChild(editButton);
+
+  saveButton.innerHTML = `<type = button id ="save">save</button>`;
+  newMessage.appendChild(saveButton);
+  saveButton.disabled = true;
 }
 
 form.addEventListener("submit", (event) => {
@@ -63,17 +66,16 @@ removeButton.addEventListener("click", function () {
   const entry = removeButton.parentNode;
   entry.remove();
 });
-//maybe try using replace? let editMessage = userinput and then replace message?
-editButton.addEventListener("click", function () {
-  const entry = removeButton.parentNode;
-  entry.remove();
-  const newMessage = document.createElement("li");
-  newMessage.innerHTML = `<div> <a class="link" href="mailto:${email}">
-  ${name1}:</a>  <div contenteditable = "true" onsubmit >
-<span>${message}</span>
-</div>`;
-  document.getElementById("messageSelection").appendChild(newMessage);
 
+editButton.addEventListener("click", function () {
+  saveButton.disabled = false;
+  console.log(usermessage);
+  document.getElementById("usermessage").contentEditable = true;
+});
+
+saveButton.addEventListener("click", function () {
+  document.getElementById("usermessage").contentEditable = false;
+  saveButton.disabled = true;
 });
 
 /*        Inside the callback function, find the button's parent element using DOM Traversal (hint: parentNode property) and store it in a variable named entry
