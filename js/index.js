@@ -78,11 +78,3 @@ saveButton.addEventListener("click", function () {
   saveButton.disabled = true;
 });
 
-/*        Inside the callback function, find the button's parent element using DOM Traversal (hint: parentNode property) and store it in a variable named entry
-        Remove the entry element from the DOM (hint: remove method)
-Append the removeButton to the newMessage element
-    hint: appendChild method
-Append the newMessage to the messageList element
-Save and refresh your browser
-
-*/
