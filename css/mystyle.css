@@ -1,3 +1,12 @@
+@media screen and (max-height: 450px) {
+  .leftside {
+    padding-top: 15px;
+  }
+  .leftside a {
+    font-size: 18px;
+  }
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -57,15 +66,6 @@ a:hover {
 }
 
 
-@media screen and (max-height: 450px) {
-  .leftside {
-    padding-top: 15px;
-  }
-  .leftside a {
-    font-size: 18px;
-  }
-}
-
 #messages {
   font-size: larger;
   background-color: #e5e7eb;
@@ -81,8 +81,18 @@ a:hover {
 }
 
 #usermessage {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: left;
-  word-break: break-all;
+  word-break:normal;
+}
+
+button { 
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+  border:1px solid; 
+  border-color: #000b4f; 
+  margin: 5px;
+  padding: 5px;
+  font-weight: bold;
 }
 
 
@@ -97,12 +107,18 @@ a:hover {
   font-size: larger;
 }
 
-#experiencelist {
+#experienceList {
   margin: none;
   list-style: none;
   padding: 10px;
   margin-bottom: 50px;
   font-size: larger;
+}
+
+#experienceList li {
+  background-color: #000b4f;
+  color: #ebebeb;
+  font-weight: bold;
 }
 #skills {
   margin-bottom: 0;
@@ -121,9 +137,18 @@ a:hover {
   border-color: #000b4f;;
   border-radius: 10%;
   margin: 20px;
-  font-size: large;
+  font-weight: bold;
 }
 
+#experienceList li {
+  display: inline-block;
+  padding: 30px;
+  border-style: solid;
+  border-color: #000b4f;;
+  border-radius: 10%;
+  margin: 20px;
+  font-size: large;
+}
 
 .projects {
   display: grid;
