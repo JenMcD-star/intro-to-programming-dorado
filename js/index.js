@@ -14,12 +14,25 @@ const skills = [
   "Effective Communication",
 ];
 
-skills.forEach(function (item) {
+const experience = [
+  "Special Education Teacher",
+  "Underwriting Assistant",
+  "Person Care Attendant"
+];
+
+
+
+function listItems(area, id){
+  area.forEach(function(item){
   let li = document.createElement("li");
   let text = document.createTextNode(item);
   li.appendChild(text);
-  document.getElementById("skillsList").appendChild(li);
+  document.getElementById(id).appendChild(li);
 });
+}
+
+listItems(experience, "experienceList");
+listItems(skills, "skillsList")
 
 const submitButton = document.createElement("button");
 const saveButton = document.createElement("button");
