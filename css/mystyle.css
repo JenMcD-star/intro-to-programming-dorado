@@ -3,7 +3,7 @@
     padding-top: 15px;
   }
   .leftside a {
-    font-size: 18px;
+    font-size: 112.5%;
   }
 }
 
@@ -11,6 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #000b4f;
+  max-width: 100%;
 }
 
 #header {
@@ -33,7 +34,7 @@ img {
 #links {
   display: flex;
   margin-top: 40px;
-  margin-left: 950px;
+  margin-left: auto;
   list-style-type: none;
   gap: 16px;
   float: right;
@@ -43,7 +44,7 @@ a {
   color: inherit;
   font-size: medium;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 112.5%;
   font-weight: bold;
 }
 
@@ -53,7 +54,6 @@ a:hover {
 
 .leftside {
   color: whitesmoke;
-  position: relative;
   margin-top: 120px;
   height: 100%;
   width: 350px; /* Set the width of the sidebar */
@@ -159,13 +159,12 @@ button {
   }
 
 .rightside {
-  width: 80%;
   background-color: #ebebeb;
   margin-left: 350px;
-  margin-top: 120px;
-  position: fixed;
-  height: 100%;
+  position: relative;
   text-align: center;
+  padding-bottom: 150px;
+  height: 100%;
 }
 
 .footer {
