@@ -10,13 +10,13 @@ body {
   flex-wrap: wrap;
   padding: 10px;
   align-items: center;
-  margin-left: 16px;
-  margin-right: 46px;
+  margin-left: 20px;
   color: #e5e7eb;
   position: sticky;
   top: 0;
   z-index: 1000;
   background-color: #000b4f;
+  width: 90%;
 }
 img {
   border-radius: 50%;
@@ -34,6 +34,7 @@ img {
   list-style-type: none;
   gap: 16px;
   float: right;
+  background-color: #000b4f;
 }
 
 a {
