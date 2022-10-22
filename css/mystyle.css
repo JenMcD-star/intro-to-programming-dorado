@@ -13,6 +13,10 @@ body {
   margin-left: 16px;
   margin-right: 46px;
   color: #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #000b4f;
 }
 img {
   border-radius: 50%;
@@ -64,10 +68,11 @@ a:hover {
 }
 
 #experienceList {
+  display: flex;
+  justify-content: center;
   margin: none;
   list-style: none;
-  padding: 10px;
-  margin-bottom: 50px;
+  padding: 0px;
   font-size: larger;
 }
 
@@ -75,6 +80,7 @@ a:hover {
   background-color: #000b4f;
   color: #ebebeb;
   font-weight: bold;
+  margin-top: 5px;
 }
 #skills {
   margin-bottom: 0;
@@ -134,8 +140,6 @@ a:hover {
   font-size: larger;
   background-color: #000b4f;
   color: #e5e7eb;
-
-  
 }
 #messageSelection {
   margin-top: 5px;
