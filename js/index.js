@@ -104,12 +104,12 @@ gitHubRequest.onload = function () {
   for (let i = 0; i < repositories.length; i++) {
     let li = document.createElement("li");
     if (repositories[i].name == "Calculator") {
-      li.innerHTML = `<a href="//https://jenmcd-star.github.io/Calculator/"> ${repositories[i].name} Live View</a>`;
+      li.innerHTML = `<a href="https://jenmcd-star.github.io/Calculator/"> ${repositories[i].name} Live View</a>`;
       console.log(li.innerHTML)
     } else if (repositories[i].name == "Etch-a-Sketch") {
-      li.innerHTML = `<a href="//https://jenmcd-star.github.io/Etch-a-Sketch/"> ${repositories[i].name} Live View</a>`;
+      li.innerHTML = `<a href="https://jenmcd-star.github.io/Etch-a-Sketch/"> ${repositories[i].name} Live View</a>`;
     } else if (repositories[i].name == "landing_page") {
-      li.innerHTML = `<a href="//https://jenmcd-star.github.io/landing_page/"> ${repositories[i].name} Live View</a>`;
+      li.innerHTML = `<a href="https://jenmcd-star.github.io/landing_page/"> ${repositories[i].name} Live View</a>`;
     } else {
       li.innerHTML = `<a href="${repositories[i].clone_url}"> ${repositories[i].name}</a>`;
     }
