@@ -96,25 +96,28 @@ const projectSelection = document.getElementById("projects");
 const projectList = projectSelection.querySelector("ul");
 
 let repositories;
-let gitHubRequest = new XMLHttpRequest();
-gitHubRequest.open("GET", "https://api.github.com/users/JenMcD-star/repos");
-gitHubRequest.onload = function () {
-  repositories = JSON.parse(this.response);
-  console.log(repositories);
-  for (let i = 0; i < repositories.length; i++) {
-    let li = document.createElement("li");
-    if (repositories[i].name == "Calculator") {
-      li.innerHTML = `<a href="https://jenmcd-star.github.io/Calculator/"> ${repositories[i].name} Live View</a>`;
-      console.log(li.innerHTML)
-    } else if (repositories[i].name == "Etch-a-Sketch") {
-      li.innerHTML = `<a href="https://jenmcd-star.github.io/Etch-a-Sketch/"> ${repositories[i].name} Live View</a>`;
-    } else if (repositories[i].name == "landing_page") {
-      li.innerHTML = `<a href="https://jenmcd-star.github.io/landing_page/"> ${repositories[i].name} Live View</a>`;
-    } else {
-      li.innerHTML = `<a href="${repositories[i].clone_url}"> ${repositories[i].name}</a>`;
-    }
-    document.getElementById("projectDisplay").appendChild(li);
-  }
-};
 
-gitHubRequest.send();
+fetch("https://api.github.com/users/JenMcD-star/repos", { mode: "cors" })
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (response) {
+    for (i = 0; i < response.length; i++) {
+      console.log(response[i].name);
+      let li = document.createElement("li");
+      if (response[i].name == "Calculator") {
+        li.innerHTML = `<a href="https://jenmcd-star.github.io/Calculator/"> ${response[i].name} Live View</a>`;
+        console.log(li.innerHTML);
+      } else if (response[i].name == "Etch-a-Sketch") {
+        li.innerHTML = `<a href="https://jenmcd-star.github.io/Etch-a-Sketch/"> ${response[i].name} Live View</a>`;
+      } else if (response[i].name == "landing_page") {
+        li.innerHTML = `<a href="https://jenmcd-star.github.io/landing_page/"> ${response[i].name} Live View</a>`;
+      } else {
+        li.innerHTML = `<a href="${response[i].clone_url}"> ${response[i].name}</a>`;
+      }
+      document.getElementById("projectDisplay").appendChild(li);
+    }
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
