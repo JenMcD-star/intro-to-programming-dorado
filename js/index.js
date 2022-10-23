@@ -3,7 +3,7 @@ window.onload = function () {
   let footer = document.getElementById("footerleft");
   let copyright = document.createElement("p");
   copyright.innerHTML = "© Jennifer McDougall " + year;
-  footer.appendChild(copyright)
+  footer.appendChild(copyright);
 };
 
 const skills = [
@@ -17,22 +17,20 @@ const skills = [
 const experience = [
   "Special Education Teacher",
   "Underwriting Assistant",
-  "Person Care Attendant"
+  "Person Care Attendant",
 ];
 
-
-
-function listItems(area, id){
-  area.forEach(function(item){
-  let li = document.createElement("li");
-  let text = document.createTextNode(item);
-  li.appendChild(text);
-  document.getElementById(id).appendChild(li);
-});
+function listItems(area, id) {
+  area.forEach(function (item) {
+    let li = document.createElement("li");
+    let text = document.createTextNode(item);
+    li.appendChild(text);
+    document.getElementById(id).appendChild(li);
+  });
 }
 
 listItems(experience, "experienceList");
-listItems(skills, "skillsList")
+listItems(skills, "skillsList");
 
 const submitButton = document.createElement("button");
 const saveButton = document.createElement("button");
@@ -94,3 +92,20 @@ saveButton.addEventListener("click", function () {
   saveButton.disabled = true;
 });
 
+const projectSelection = document.getElementById("projects");
+const projectList = projectSelection.querySelector("ul");
+
+let repositories;
+let gitHubRequest = new XMLHttpRequest();
+gitHubRequest.open("GET", "https://api.github.com/users/JenMcD-star/repos");
+gitHubRequest.onload = function () {
+  repositories = JSON.parse(this.response);
+  console.log(repositories)
+  for (let i = 0; i < repositories.length; i++){
+    let li = document.createElement("li");
+    li.innerHTML = `<a href="${repositories[i].clone_url}"> ${repositories[i].name}</a>`;
+    document.getElementById("projectDisplay").appendChild(li);
+  };
+};
+
+gitHubRequest.send();
