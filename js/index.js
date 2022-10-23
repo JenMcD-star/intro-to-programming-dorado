@@ -3,7 +3,7 @@ window.onload = function () {
   let footer = document.getElementById("footerleft");
   let copyright = document.createElement("p");
   copyright.innerHTML = "© Jennifer McDougall " + year;
-  footer.appendChild(copyright)
+  footer.appendChild(copyright);
 };
 
 const skills = [
@@ -17,22 +17,20 @@ const skills = [
 const experience = [
   "Special Education Teacher",
   "Underwriting Assistant",
-  "Person Care Attendant"
+  "Person Care Attendant",
 ];
 
-
-
-function listItems(area, id){
-  area.forEach(function(item){
-  let li = document.createElement("li");
-  let text = document.createTextNode(item);
-  li.appendChild(text);
-  document.getElementById(id).appendChild(li);
-});
+function listItems(area, id) {
+  area.forEach(function (item) {
+    let li = document.createElement("li");
+    let text = document.createTextNode(item);
+    li.appendChild(text);
+    document.getElementById(id).appendChild(li);
+  });
 }
 
 listItems(experience, "experienceList");
-listItems(skills, "skillsList")
+listItems(skills, "skillsList");
 
 const submitButton = document.createElement("button");
 const saveButton = document.createElement("button");
@@ -94,3 +92,29 @@ saveButton.addEventListener("click", function () {
   saveButton.disabled = true;
 });
 
+const projectSelection = document.getElementById("projects");
+const projectList = projectSelection.querySelector("ul");
+
+let repositories;
+let gitHubRequest = new XMLHttpRequest();
+gitHubRequest.open("GET", "https://api.github.com/users/JenMcD-star/repos");
+gitHubRequest.onload = function () {
+  repositories = JSON.parse(this.response);
+  console.log(repositories);
+  for (let i = 0; i < repositories.length; i++) {
+    let li = document.createElement("li");
+    if (repositories[i].name == "Calculator") {
+      li.innerHTML = `<a href="//https://jenmcd-star.github.io/Calculator/"> ${repositories[i].name} Live View</a>`;
+      console.log(li.innerHTML)
+    } else if (repositories[i].name == "Etch-a-Sketch") {
+      li.innerHTML = `<a href="//https://jenmcd-star.github.io/Etch-a-Sketch/"> ${repositories[i].name} Live View</a>`;
+    } else if (repositories[i].name == "landing_page") {
+      li.innerHTML = `<a href="//https://jenmcd-star.github.io/landing_page/"> ${repositories[i].name} Live View</a>`;
+    } else {
+      li.innerHTML = `<a href="${repositories[i].clone_url}"> ${repositories[i].name}</a>`;
+    }
+    document.getElementById("projectDisplay").appendChild(li);
+  }
+};
+
+gitHubRequest.send();

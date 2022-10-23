@@ -3,6 +3,7 @@ body {
   flex-direction: column;
   background-color: #000b4f;
   max-width: 100%;
+  margin: 50px;
 }
 
 #header {
@@ -10,8 +11,8 @@ body {
   flex-wrap: wrap;
   padding: 10px;
   align-items: center;
-  margin-left: 16px;
-  margin-right: 46px;
+  margin-left: 26px;
+  margin-right: 36px;
   color: #e5e7eb;
   position: sticky;
   top: 0;
@@ -52,7 +53,6 @@ a:hover {
   background-color: #ebebeb;
   position: relative;
   text-align: center;
-  padding-bottom: 150px;
   height: 100%;
   width: fit-content;
 }
@@ -107,17 +107,23 @@ a:hover {
   padding: 30px;
   border-style: solid;
   border-color: #000b4f;
-  border-radius: 10%;
   margin: 20px;
   font-size: large;
 }
 
-.projects {
+#projects .projects {
+  padding: 0;
+}
+
+#projectDisplay {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-row-gap: 1em;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 50px;
 }
 
 .bottom {
