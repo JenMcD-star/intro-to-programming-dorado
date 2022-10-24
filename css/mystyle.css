@@ -35,6 +35,8 @@ img {
   list-style-type: none;
   gap: 16px;
   float: right;
+  flex-wrap: wrap;
+
 }
 
 a {

@@ -95,7 +95,6 @@ saveButton.addEventListener("click", function () {
 const projectSelection = document.getElementById("projects");
 const projectList = projectSelection.querySelector("ul");
 
-let repositories;
 
 fetch("https://api.github.com/users/JenMcD-star/repos", { mode: "cors" })
   .then(function (response) {
