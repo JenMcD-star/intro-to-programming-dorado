@@ -111,6 +111,8 @@ fetch("https://api.github.com/users/JenMcD-star/repos", { mode: "cors" })
         li.innerHTML = `<a href="https://jenmcd-star.github.io/Etch-a-Sketch/"> ${response[i].name} Live View</a>`;
       } else if (response[i].name == "landing_page") {
         li.innerHTML = `<a href="https://jenmcd-star.github.io/landing_page/"> ${response[i].name} Live View</a>`;
+      } else if (response[i].name === "Star-Wars"){
+        li.innerHTML = `<a href= "https://jenmcd-star.github.io/Star-Wars/index.html"> ${response[i].name} Live View</a>`
       } else {
         li.innerHTML = `<a href="${response[i].clone_url}"> ${response[i].name}</a>`;
       }
