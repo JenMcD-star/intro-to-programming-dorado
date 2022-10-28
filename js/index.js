@@ -6,6 +6,13 @@ window.onload = function () {
   footer.appendChild(copyright);
 };
 
+const date = new Date();
+
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+let currentDate = `${month}-${day}-${year}`;
+
 const skills = [
   "JavaScript",
   "HTML",
@@ -49,13 +56,18 @@ function getUserInfo() {
 }
 
 function getMessage() {
+  const title = document.createElement("h2")
+  title.innerHTML = `Messages`;
   const newMessage = document.createElement("li");
+
+  document.getElementById("messages").appendChild(title);
   newMessage.innerHTML = `<div>
   <a class="link" href="mailto:${email}">
   ${name1}:</a> 
-  <span id= "usermessage">${message}</span>
+  <span id= "usermessage">${message}</span><br> ${currentDate}
 </div>`;
   document.getElementById("messageSelection").appendChild(newMessage);
+
 
   removeButton.innerHTML = `<type = button id ="delete">delete</button>`;
   newMessage.appendChild(removeButton);
@@ -102,11 +114,9 @@ fetch("https://api.github.com/users/JenMcD-star/repos", { mode: "cors" })
   })
   .then(function (response) {
     for (i = 0; i < response.length; i++) {
-      console.log(response[i].name);
       let li = document.createElement("li");
       if (response[i].name == "Calculator") {
         li.innerHTML = `<a href="https://jenmcd-star.github.io/Calculator/"> ${response[i].name} Live View</a>`;
-        console.log(li.innerHTML);
       } else if (response[i].name == "Etch-a-Sketch") {
         li.innerHTML = `<a href="https://jenmcd-star.github.io/Etch-a-Sketch/"> ${response[i].name} Live View</a>`;
       } else if (response[i].name == "landing_page") {
