@@ -160,6 +160,12 @@ a:hover {
   display: none;
 }
 
+#messageSelection li {
+  padding-top: 15px;
+  margin-left: 5px;
+
+}
+
 #usermessage {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
