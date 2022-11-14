@@ -40,11 +40,12 @@ listItems(experience, "experienceList");
 listItems(skills, "skillsList");
 
 const submitButton = document.createElement("button");
-const saveButton = document.createElement("button");
-const editButton = document.createElement("button");
-const removeButton = document.createElement("button");
 const messagetext = document.getElementById("messagetext");
 const form = document.getElementById("form");
+const title = document.createElement("h2");
+title.innerHTML = `Messages`;
+
+let y = 0;
 let name1;
 let email;
 let message;
@@ -56,18 +57,19 @@ function getUserInfo() {
 }
 
 function getMessage() {
-  const title = document.createElement("h2")
-  title.innerHTML = `Messages`;
+  const saveButton = document.createElement("button");
+  const editButton = document.createElement("button");
+  const removeButton = document.createElement("button");
   const newMessage = document.createElement("li");
-
   document.getElementById("messages").appendChild(title);
   newMessage.innerHTML = `<div>
   <a class="link" href="mailto:${email}">
   ${name1}:</a> 
-  <span id= "usermessage">${message}</span><br> ${currentDate}
+  <span id= "usermessage${y}">${message}</span><br> ${currentDate}
 </div>`;
-  document.getElementById("messageSelection").appendChild(newMessage);
+  let usermessage = (`usermessage${y}`)
 
+  document.getElementById("messageSelection").appendChild(newMessage);
 
   removeButton.innerHTML = `<type = button id ="delete">delete</button>`;
   newMessage.appendChild(removeButton);
@@ -78,35 +80,33 @@ function getMessage() {
   saveButton.innerHTML = `<type = button id ="save">save</button>`;
   newMessage.appendChild(saveButton);
   saveButton.disabled = true;
+
+  removeButton.addEventListener("click", function () {
+    const entry = removeButton.parentNode;
+    entry.remove();
+  });
+
+  editButton.addEventListener("click", function () {
+    saveButton.disabled = false;
+    document.getElementById(usermessage).contentEditable = true;
+  });
+
+  saveButton.addEventListener("click", function () {
+    document.getElementById(usermessage).contentEditable = false;
+    saveButton.disabled = true;
+  });
 }
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  y++;
   getUserInfo();
   getMessage();
-
   form.reset();
-});
-
-removeButton.addEventListener("click", function () {
-  const entry = removeButton.parentNode;
-  entry.remove();
-});
-
-editButton.addEventListener("click", function () {
-  saveButton.disabled = false;
-  console.log(usermessage);
-  document.getElementById("usermessage").contentEditable = true;
-});
-
-saveButton.addEventListener("click", function () {
-  document.getElementById("usermessage").contentEditable = false;
-  saveButton.disabled = true;
 });
 
 const projectSelection = document.getElementById("projects");
 const projectList = projectSelection.querySelector("ul");
-
 
 fetch("https://api.github.com/users/JenMcD-star/repos", { mode: "cors" })
   .then(function (response) {
@@ -121,8 +121,8 @@ fetch("https://api.github.com/users/JenMcD-star/repos", { mode: "cors" })
         li.innerHTML = `<a href="https://jenmcd-star.github.io/Etch-a-Sketch/"> ${response[i].name} Live View</a>`;
       } else if (response[i].name == "landing_page") {
         li.innerHTML = `<a href="https://jenmcd-star.github.io/landing_page/"> ${response[i].name} Live View</a>`;
-      } else if (response[i].name === "Star-Wars"){
-        li.innerHTML = `<a href= "https://jenmcd-star.github.io/Star-Wars/index.html"> ${response[i].name} Live View</a>`
+      } else if (response[i].name === "Star-Wars") {
+        li.innerHTML = `<a href= "https://jenmcd-star.github.io/Star-Wars/index.html"> ${response[i].name} Live View</a>`;
       } else {
         li.innerHTML = `<a href="${response[i].clone_url}"> ${response[i].name}</a>`;
       }
