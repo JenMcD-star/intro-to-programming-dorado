@@ -14,9 +14,7 @@ body {
   margin-left: 26px;
   margin-right: 36px;
   color: #e5e7eb;
-  position: sticky;
   top: 0;
-  z-index: 1000;
   background-color: #000b4f;
 }
 img {
